@@ -1,0 +1,26 @@
+<table [hidden]="deleteSuccess" class="table table-striped">
+  <tbody>
+    <tr>
+      <td valign="top">
+        <dl class="dl-horizontal">
+          <dt>Name</dt>
+          <dd>{{ pet.name }}</dd>
+          <dt>Birth Date</dt>
+          <dd>{{ pet.birthDate }}</dd>
+          <dt>Type</dt>
+          <dd>{{ pet.type.name }}</dd>
+          <button routerLink="/pets/{{ pet.id }}/edit" class="btn btn-default bg-dark text-light me-2">
+            Edit Pet
+          </button>
+          <button class="btn btn-default bg-dark text-light me-2" (click)="deletePet()">
+            Delete Pet
+          </button>
+          <button class="btn btn-default bg-dark text-light" routerLink="/pets/{{ pet.id }}/visits/add">Add Visit</button>
+        </dl>
+      </td>
+      <td valign="top">
+        <app-visit-list [visits]="pet.visits"></app-visit-list>
+      </td>
+    </tr>
+  </tbody>
+</table>

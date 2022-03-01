@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="col-md-6 offset-md-3">
+    <h2 class="mt-3">Add Pet</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group mt-3">
+        <label>Owner</label>
+        <input
+          type="text"
+          class="form-control"
+          id="firstName"
+          [(ngModel)]="currentOwner.firstName"
+          name="firstName"
+          readonly
+        />
+      </div>
+
+      <div class="form-group mt-3">
+        <label>Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          [(ngModel)]="pet.name"
+          name="name"
+        />
+      </div>
+
+      <div class="form-group mt-3">
+        <label>Birth Date</label>
+        <input
+          type="text"
+          class="form-control"
+          id="birthDate"
+          [(ngModel)]="pet.birthDate"
+          name="birthDate"
+          value="2000-09-06T22:00:00.000+00:00"
+        />
+      </div>
+
+      <div class="form-group mt-3">
+        <label for="type">Type</label>
+        <select
+          id="type"
+          name="type"
+          class="form-control"
+          required
+          [(ngModel)]="pet.type"
+          #type="ngModel"
+        >
+          <option *ngFor="let type of petTypes" [ngValue]="type">
+            {{ type.name }}
+          </option>
+        </select>
+      </div>
+
+      <button class="btn btn-success mt-3 me-2" type="submit">Submit</button>
+      <button
+        class="btn btn-default bg-dark text-light mt-3"
+        routerLink="/owners/{{ currentOwnerId }}"
+      >
+        Cancel
+      </button>
+    </form>
+  </div>
+</div>

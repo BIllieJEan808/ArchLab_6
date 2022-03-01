@@ -1,0 +1,46 @@
+<div class="container">
+  <h2 class="mt-3 mb-3">Owner Information</h2>
+
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <th>Name</th>
+        <td>{{ owner.firstName }} {{ owner.lastName }}</td>
+      </tr>
+      <tr>
+        <th>Address</th>
+        <td>{{ owner.address }}</td>
+      </tr>
+      <tr>
+        <th>City</th>
+        <td>{{ owner.city }}</td>
+      </tr>
+      <tr>
+        <th>Telephone</th>
+        <td>{{ owner.telephone }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button class="btn btn-default bg-dark text-light me-2" routerLink="/owners">
+    Back
+  </button>
+  <button
+    class="btn btn-default bg-dark text-light me-2"
+    routerLink="/owners/{{ owner.id }}/edit"
+  >
+    Edit Owner
+  </button>
+  <button class="btn btn-default bg-dark text-light" (click)="addPet()">Add New Pet</button>
+
+  <br />
+  <br />
+  <br />
+  <h2>Pets and Visits</h2>
+
+  <table class="table table-striped">
+    <tr>
+      <app-pet-list *ngFor="let pet of owner.pets" [pet]="pet"></app-pet-list>
+    </tr>
+  </table>
+</div>

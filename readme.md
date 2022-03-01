@@ -9,3 +9,4 @@
 * Both Angular app and Spring Boot app must be started
   * ng serve
   * mvn spring-boot:run
+  * 
