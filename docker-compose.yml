@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  petclinic:
+    build:
+      context: ./
+      dockerfile: ./backend/spring-boot-petclinic/Dockerfile
+    ports:
+      - 8000:8000
+      - 8080:8080
+    environment:
+      - SERVER_PORT=8080
+      - MYSQL_URL=jdbc:mysql://mysqlserver/petclinic?createDatabaseIfNotExist=true&useSSL=false&useUnicode=yes&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    volumes:
+      - ./backend/spring-boot-petclinic/:/app
+    command: ./mvnw spring-boot:run
+
+  mysqlserver:
+    image: mysql:8.0.23
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
