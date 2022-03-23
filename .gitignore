@@ -1,37 +1,3 @@
-Skip to content
-Why GitHub? 
-Team
-Enterprise
-Explore 
-Marketplace
-Pricing 
-Search
-Sign in
-Sign up
-darbyluv2code
-/
-fullstack-angular-and-springboot
-Public
-Code
-Pull requests
-10
-Actions
-Projects
-Wiki
-Security
-Insights
-fullstack-angular-and-springboot/.gitignore
-@darbyluv2code
-darbyluv2code add gitignore for visualstudiocode
-Latest commit 7355c07 on 6 Nov 2019
- History
- 1 contributor
-715 lines (556 sloc)  11.7 KB
-   
-
-# Created by https://www.gitignore.io/api/node,java,macos,maven,eclipse,angular,intellij,netbeans,visualstudio,visualstudiocode
-# Edit at https://www.gitignore.io/?templates=node,java,macos,maven,eclipse,angular,intellij,netbeans,visualstudio,visualstudiocode
-
 ### Angular ###
 ## Angular ##
 # compiled output
@@ -741,17 +707,3 @@ MigrationBackup/
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
-
-# End of https://www.gitignore.io/api/node,java,macos,maven,eclipse,angular,intellij,netbeans,visualstudio,visualstudiocode
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
