@@ -1,27 +1,19 @@
-# Create image based on the official Node 6 image from dockerhub
-FROM node:latest
+FROM node:lts-alpine
 
-# Create a directory where our app will be placed
-RUN mkdir -p /usr/src/app
+ARG WORK_DIR=/app
+ENV PATH ${WORK_DIR}/node_modules/.bin:$PATH
 
-# Change directory so that our commands run inside this new directory
-WORKDIR /usr/src/app
+RUN mkdir ${WORK_DIR}
+WORKDIR ${WORK_DIR}
 
-# Copy dependency definitions
-COPY package.json /usr/src/app
+COPY package.json ${WORK_DIR}
+COPY package-lock.json ${WORK_DIR}
 
-# Install dependecies
+RUN npm install @angular/cli
 RUN npm install
 
-# Get all the code needed to run the app
-COPY . /usr/src/app
+COPY . ${WORK_DIR}
 
-# Expose the port the app runs in
 EXPOSE 4200
 
-# Serve the app
-# CMD ["npm", "start"]
-CMD ["node_modules/.bin/ng", "serve"]
-
-# RUN node_modules/.bin/ng serve
-# RUN npm run build --prod
+CMD ["ng", "serve", "--host", "0.0.0.0"]

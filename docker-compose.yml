@@ -1,34 +1,36 @@
 version: '3.8'
 services:
-  petclinic:
-    build:
-      context: ./
-      dockerfile: ./backend/spring-boot-petclinic/Dockerfile
+  backend:
+    build: ./backend/spring-boot-petclinic
     ports:
       - 8000:8000
       - 8080:8080
     depends_on:
-      - mysqlserver
+      - database
     environment:
       - SERVER_PORT=8080
-      - MYSQL_URL=jdbc:mysql://mysqlserver/petclinic?createDatabaseIfNotExist=true&useSSL=false&useUnicode=yes&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      - MYSQL_URL=jdbc:mysql://database/petclinic?createDatabaseIfNotExist=true&useSSL=false&useUnicode=yes&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&serverTimezone=UTC
     volumes:
       - ./backend/spring-boot-petclinic/:/app
-    command: ./mvnw spring-boot:run
 
-  # angular-frontend:
-  #   build:
-  #     context: ./frontend/angular-petclinic
-  #     dockerfile: ./Dockerfile
-  #   ports:
-  #     - 4200:4200
-  #   volumes:
-  #     - ./frontend/angular-petclinic/:/usr/src/app
+  frontend:
+    build: ./frontend/angular-petclinic/
+    ports:
+      - 4200:4200
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend/angular-petclinic/:/app
 
-  mysqlserver:
-    image: mysql:latest
+  database:
+    image: mysql:8
     ports:
       - 3306:3306
     environment:
       - MYSQL_ROOT_PASSWORD=
       - MYSQL_ALLOW_EMPTY_PASSWORD=true
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  db:
