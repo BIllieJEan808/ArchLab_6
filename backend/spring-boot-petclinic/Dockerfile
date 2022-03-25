@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM openjdk:16-alpine3.13
+FROM adoptopenjdk/openjdk11:jre-11.0.6_10-alpine
 
 WORKDIR /app
 
