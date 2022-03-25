@@ -21,6 +21,7 @@ services:
       - backend
     volumes:
       - ./frontend/angular-petclinic/:/app
+      - /app/node_modules
 
   database:
     image: mysql:8
