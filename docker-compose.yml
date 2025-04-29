@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"  # Доступ к приложению на localhost:8000
+    volumes:
+      - ./app/front:/usr/share/nginx/html  # Автоперезагрузка HTML/CSS

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Онлайн-библиотека | Регистрация</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Регистрация</h1>
+    <form id="registrationForm">
+        <div class="form-group">
+            <label for="first_name">Имя:</label>
+            <input type="text" id="first_name" name="first_name" required>
+        </div>
+        <div class="form-group">
+            <label for="last_name">Фамилия:</label>
+            <input type="text" id="last_name" name="last_name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Почта:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+    <div class="login-link">
+        <p>Уже есть аккаунт? <a href="#">Войти</a></p>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
