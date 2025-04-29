@@ -3,31 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Онлайн-библиотека | Регистрация</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Онлайн-библиотека | Вход</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
 <div class="container">
-    <h1>Регистрация</h1>
-    <form id="registrationForm">
-        <div class="form-group">
-            <label for="first_name">Имя:</label>
-            <input type="text" id="first_name" name="first_name" required>
-        </div>
-        <div class="form-group">
-            <label for="last_name">Фамилия:</label>
-            <input type="text" id="last_name" name="last_name" required>
-        </div>
+    <h1 id="formTitle">Вход в библиотеку</h1>
+    <form id="authForm">
+        <!-- Общие поля -->
         <div class="form-group">
             <label for="email">Почта:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" required>
         </div>
-        <button type="submit">Зарегистрироваться</button>
+        <div class="form-group">
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" required>
+        </div>
+
+        <!-- Поля регистрации (изначально скрыты) -->
+        <div id="registerFields" style="display: none;">
+            <div class="form-group">
+                <label for="first_name">Имя:</label>
+                <input type="text" id="first_name">
+            </div>
+            <div class="form-group">
+                <label for="last_name">Фамилия:</label>
+                <input type="text" id="last_name">
+            </div>
+        </div>
+
+        <button type="submit" id="submitBtn">Войти</button>
     </form>
-    <div class="login-link">
-        <p>Уже есть аккаунт? <a href="#">Войти</a></p>
+
+    <!-- Блок переключения (только для входа) -->
+    <div class="login-link" id="toggleFormContainer">
+        <p>Нет аккаунта? <a href="#" id="toggleFormLink">Зарегистрироваться</a></p>
     </div>
 </div>
-<script src="script.js"></script>
+<script src="./script.js"></script>
 </body>
 </html>
