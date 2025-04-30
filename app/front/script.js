@@ -75,3 +75,27 @@ function loginUser(user) {
     localStorage.setItem('currentUser', JSON.stringify(storedUser));
     window.location.href = 'main.html';
 }
+
+// Регистрация
+async function registerUser(user) {
+    const response = await fetch('/api/api.php?action=register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user)
+    });
+    return await response.json();
+}
+
+// Взять книгу
+async function borrowBook(bookId) {
+    const response = await fetch('/api/api.php?action=borrow', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ book_id: bookId })
+    });
+    return await response.json();
+}
